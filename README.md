@@ -1,6 +1,48 @@
 # CarND-Controls-MPC
 Self-Driving Car Engineer Nanodegree Program
 
+## Topics in rubric
+
+### 1. Your code should compile.
+
+My code compiles well with cmake and make.
+
+### 2. Student describes their model in detail. This includes the state, actuators and update equations.
+
+My model is kinetic model from Udacity course. The kinetic model has x and y represent vehicle's coordination, and psi is an orientation angle. In addition, there are velocity of vehicle, cross track error(cte), and psi error(epsi.) How each variants are defined is in the below picture from also Udacity course. Also, with this model and constraints and cost in combination, the solver defines a trajectory whose parameters are defined as N (timestep length) and dt (elpased duration between timesteps.)
+
+![alt text](./imaegs/image1.png "image 1")
+
+### 3. Student discusses the reasoning behind the chosen N (timestep length) and dt (elapsed duration between timesteps) values. Additionally the student details the previous values tried.
+
+I chose N = 10 and dt = 0.1 because honestly this is what Udacity course suggests. I set the variables to them and there was remarkable error due to this.
+
+### 4. A polynomial is fitted to waypoints. If the student preprocesses waypoints, the vehicle state, and/or actuators prior to the MPC procedure it is described.
+
+Only preprocess I did is to transform the coordinates into vehicle's system. The code is in main.cpp line 108~113.
+
+### 5. The student implements Model Predictive Control that handles a 100 millisecond latency. Student provides details on how they deal with latency.
+
+I tried two methods.
+
+1) We can feed delay factored state in the solver. With this you can always handle 100 milisecond latency because they are always with it.
+This code is in main.cpp line 134~156.
+
+2) We can deal with delay by manipulating only actuactor and delta value in a similar manner to 1). This code is in MPC.cpp line 110~113.
+
+In both ways, I didn't see much difference than the case without any latency consideration.
+
+
+### 6. No tire may leave the drivable portion of the track surface. The car may not pop up onto ledges or roll over any surfaces that would otherwise be considered unsafe (if humans were in the vehicle). The car can't go over the curb, but, driving on the lines before the curb is ok.
+
+The car drives well without disturbance like the ones that the topic mentions.
+
+## Remarks
+
+Latency handling must be a significant issue but I don't clearly see how it works. This is what I need to study more.
+
+
+# Udacity original contents
 ---
 
 ## Dependencies
