@@ -11,7 +11,7 @@ My code compiles well with cmake and make.
 
 My model is kinetic model from Udacity course. The kinetic model has x and y represent vehicle's coordination, and psi is an orientation angle. In addition, there are velocity of vehicle, cross track error(cte), and psi error(epsi.) How each variants are defined is in the below picture from also Udacity course. Also, with this model and constraints and cost in combination, the solver defines a trajectory whose parameters are defined as N (timestep length) and dt (elpased duration between timesteps.)
 
-![alt text](./imaegs/image1.png "image 1")
+![alt text](./images/image1.png "image 1")
 
 ### 3. Student discusses the reasoning behind the chosen N (timestep length) and dt (elapsed duration between timesteps) values. Additionally the student details the previous values tried.
 
