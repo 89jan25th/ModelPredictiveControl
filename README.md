@@ -15,7 +15,23 @@ My model is kinetic model from Udacity course. The kinetic model has x and y rep
 
 ### 3. Student discusses the reasoning behind the chosen N (timestep length) and dt (elapsed duration between timesteps) values. Additionally the student details the previous values tried.
 
-I chose N = 10 and dt = 0.1 because honestly this is what Udacity course suggests. I set the variables to them and there was remarkable error due to this.
+T is a total length of future prediction, or prediction horizon. T is a product of two factors, N and dt.
+N is the number of steps in the horizon, and dt is how much time passes between each timestep. 
+The smaller dt is better because it means it has finer resolution. With too large dt, it can be hard to approximate the trajectory, or discretization error.  
+The horizon should be as larage as possible and dt does as small as possible. However N has to be chosen with consideration of computational cost becuase more timesteps means more variables to optimize with MPC.
+In case of a car path, T should be moderated because as a car moves the environment changes enough that it ought to create the new prediction. Similaraly, the faster the car moves, the shorter T and shorter dt can work better.
+
+I chose N = 10 and dt = 0.1 because honestly this is what Udacity course suggests. I set the variables to them and there was remarkable error due to this. Adjusting these values ended up in more erroratic behaviours.
+
+
+
+After trying different values, you should also try to give the reasoning behind your values e.g. explaining why some values work better than others. You can try answering the following questions:
+
+Why smaller dt is better? (finer resolution)
+Why larger N isn't always better? (computational time)
+How does time horizon (N*dt) affect the predicted path? This relates to the car speed too.
+The most popular choice is N=10, dt=0.1 which is a good starting point for experimenting other values.
+
 
 ### 4. A polynomial is fitted to waypoints. If the student preprocesses waypoints, the vehicle state, and/or actuators prior to the MPC procedure it is described.
 
