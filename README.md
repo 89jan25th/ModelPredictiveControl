@@ -23,16 +23,6 @@ In case of a car path, T should be moderated because as a car moves the environm
 
 I chose N = 10 and dt = 0.1 because honestly this is what Udacity course suggests. I set the variables to them and there was remarkable error due to this. Adjusting these values ended up in more erroratic behaviours.
 
-
-
-After trying different values, you should also try to give the reasoning behind your values e.g. explaining why some values work better than others. You can try answering the following questions:
-
-Why smaller dt is better? (finer resolution)
-Why larger N isn't always better? (computational time)
-How does time horizon (N*dt) affect the predicted path? This relates to the car speed too.
-The most popular choice is N=10, dt=0.1 which is a good starting point for experimenting other values.
-
-
 ### 4. A polynomial is fitted to waypoints. If the student preprocesses waypoints, the vehicle state, and/or actuators prior to the MPC procedure it is described.
 
 Only preprocess I did is to transform the coordinates into vehicle's system. The code is in main.cpp line 108~113.
